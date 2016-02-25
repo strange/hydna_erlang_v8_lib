@@ -30,4 +30,11 @@ lol(_Config) ->
         handler_context => #{ domain => <<"test">> }
     }),
 
+    {ok, Data} = erlang_v8_lib:run(<<"
+    http.get('http://httpbin.org/status/418').then(function(data) {
+        process.return(data);
+    });
+    ">>),
+    #{ <<"code">> := 418 } = Data,
+
     ok.

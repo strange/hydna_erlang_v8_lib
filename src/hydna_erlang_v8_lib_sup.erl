@@ -13,6 +13,7 @@ init([]) ->
             {<<"hydna">>, erlang_v8_hydna}
         ],
         extra_modules => [
+            {hydna_erlang_v8_lib, "misc.js"},
             {hydna_erlang_v8_lib, "channel.js"},
             {hydna_erlang_v8_lib, "event.js"}
         ]
