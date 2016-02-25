@@ -1,0 +1,10 @@
+.DS_Store
+erl_crash.dump
+
+*.beam
+
+/deps
+/ebin
+/log
+/logs
+/.erlang.mk
