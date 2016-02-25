@@ -22,14 +22,6 @@ lol(_Config) ->
         {eval, <<"process.return(Event.getType());">>}
     ]),
 
-    {ok, <<"test">>} = erlang_v8_lib:run(<<"
-    Channel.emit('test', 'fest').then(function(v) {
-        process.return(v);
-    });
-    ">>, #{
-        handler_context => #{ domain => <<"test">> }
-    }),
-
     {ok, Data} = erlang_v8_lib:run(<<"
     http.get('http://httpbin.org/status/418').then(function(data) {
         process.return(data);

@@ -2,10 +2,9 @@
 
 -export([run/2]).
 
-run([<<"emit">>, Path, _Data], #{ domain := _Domain }) ->
-    %% hydna_domain:emit_to_channel(DomainName, Path, Data),
+run([<<"send">>, Path, Data], #{ domain := Domain }) ->
+    hydna_domain:send_to_path(Domain, Path, Data),
     {ok, Path};
 
-run([<<"send">>, Path, _Data], #{ domain := _Domain }) ->
-    %% hydna_domain:send_to_channel(DomainName, Path, 1, 0, Data),
-    {ok, Path}.
+run(_, _) ->
+    {error, function_clause}.
